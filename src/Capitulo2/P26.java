@@ -8,16 +8,14 @@ public class P26 {
         int num;
         System.out.println("introduce un numero entero para definir la altura del triangulo: ");
         num = sc.nextInt();
-        int espacio = 0;
         for (int fila = 1; fila <= num; fila++) {
+            for (int espacio = 1; espacio <= num - fila; espacio++) {
+                System.out.print(" ");
+            }
             for (int columna = 1; columna <= fila; columna++) {
-                while (espacio < num) {
-                    System.out.print(" ");
-                    espacio++;
-                }
                 System.out.print("*");
             }
-            System.out.println(" ");
+            System.out.println("");
         }
     }
 }
