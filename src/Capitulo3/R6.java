@@ -14,17 +14,22 @@ public class R6 {
             tablaA[i] = sc.nextInt();
         }
 
-        for (int i = 0; i < tablaB.length; i++) {
-            System.out.print("Introduzca un número para la posición " + i + " de la tabla B: ");
-            tablaB[i] = sc.nextInt();
+        for (int j = 0;j < tablaB.length; j++) {
+            System.out.print("Introduzca un número para la posición " + j + " de la tabla B: ");
+            tablaB[j] = sc.nextInt();
         }
 
-        for (int i = 0; i < tablaC.length; i++) {
-
+        for (int k = 0; k <10; k++) {
+            tablaC[k] = tablaA[k];
         }
 
-        System.out.println(tablaA);
-        System.out.println(tablaB);
-        System.out.println(tablaC);
+        for (int m = 0; m < 20; m++) {
+            tablaC[m+10] = tablaB[m];
+        }
+
+        for (int r = 0; r < tablaC.length; r++) {
+            System.out.print(tablaC[r] + " ");
+        }
+
     }
 }
