@@ -30,7 +30,6 @@ public class P2 {
                 b = numeros[i];
             }
         }
-
         System.out.println("El numero mas grande es:" + a + "\nEl numero mas pequeño es: " + b);
     }
 }
