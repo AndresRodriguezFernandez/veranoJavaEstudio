@@ -13,7 +13,7 @@ public class P5 {
             numeros[i] = sc.nextInt();
         }
 
-        int a = numeros.length ;
+        int a = numeros.length;
         for (int k = 0; k < numeros.length; k++) {
             System.out.print(numeros[k] + "-");
             a -= 1;
