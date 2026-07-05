@@ -15,7 +15,6 @@ public class P6 {
             System.out.print("Introduzca un número para la posición " + i + " : ");
             numerosA[i] = sc.nextInt();
         }
-
         for (int i = 0; i < numerosB.length; i++) {
             System.out.print("Introduzca un número para la posición " + i + " : ");
             numerosB[i] = sc.nextInt();
@@ -24,7 +23,7 @@ public class P6 {
         int l = 0;
         int a = 0;
         int b = 0;
-        for (int i = 0; i < numerosC.length; i++) {
+        while (l < numerosC.length) {
             for (int k = 0; k < 3; k++) {
                 numerosC[l] = numerosA[a];
                 a++;
@@ -37,7 +36,8 @@ public class P6 {
             }
         }
 
-
-
+        for (int i = 0; i < numerosC.length; i++) {
+            System.out.print(numerosC[i] + " ");
+        }
     }
 }
