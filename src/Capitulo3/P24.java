@@ -18,6 +18,7 @@ public class P24 {
             System.out.println();
         }
 
+        System.out.println("----------------");
         int filasSuma = 0;
         for (int filas = 0; filas < tabla.length; filas++) {
             for (int col = 0; col < tabla[filas].length; col++) {
