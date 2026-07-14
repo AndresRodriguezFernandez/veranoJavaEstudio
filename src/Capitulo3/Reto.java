@@ -1,6 +1,5 @@
 package Capitulo3;
 
-import java.util.Objects;
 import java.util.Scanner;
 
 public class Reto {

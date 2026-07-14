@@ -12,7 +12,7 @@ public class P4 {
     }
 
     int selectorGrupo() {
-        System.out.println("Ahora introduce el ggrupo: ");
+        System.out.println("Ahora introduce el grupo: ");
         String grupo = sc.next().toUpperCase();
         int selec = 5;
         if (grupo.equals("A")) {

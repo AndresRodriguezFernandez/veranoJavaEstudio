@@ -1,6 +1,5 @@
 package Capitulo3;
 
-import java.awt.desktop.ScreenSleepEvent;
 import java.util.Scanner;
 
 public class R1 {

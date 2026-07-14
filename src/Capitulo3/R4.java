@@ -1,6 +1,5 @@
 package Capitulo3;
 
-import javax.swing.plaf.synth.SynthOptionPaneUI;
 import java.util.regex.Pattern;
 
 public class R4 {
