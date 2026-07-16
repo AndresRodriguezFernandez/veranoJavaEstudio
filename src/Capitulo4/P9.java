@@ -23,7 +23,7 @@ public class P9 {
     }
 
     public static void main(String[] args) {
-        int[] vector = {2,1};
+        int[] vector = {2, 90, 40, 3, 6, 7,84, 1, 56, 2342, 678, 1, 67, 8,5, 13, 6};
         ordenar(vector, 0, vector.length-1);
         for (int i = 0; i < vector.length; i++) {
             System.out.print(vector[i] + " ");
