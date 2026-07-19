@@ -17,6 +17,18 @@ public class Punto {
         return y;
     }
 
+    public void sumaX(int dato){
+        this.x += dato;
+    }
+
+    public void multiplicarX(int dato){
+        this.x *= dato;
+    }
+
+    public void restarY(int dato) {
+        this.y -= dato;
+    }
+
     @Override
     public String toString() {
         return "Punto{" +

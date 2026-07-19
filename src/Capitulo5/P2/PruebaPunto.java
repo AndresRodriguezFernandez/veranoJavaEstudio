@@ -10,7 +10,11 @@ public class PruebaPunto {
         System.out.println(p2.toString());
         System.out.println(p3.toString());
 
+        p2.sumaX(3);
+        System.out.println(p2.toString());
 
+        p3.restarY(3);
+        System.out.println(p3.toString());
 
     }
 }
