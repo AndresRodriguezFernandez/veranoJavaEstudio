@@ -77,12 +77,13 @@ public class Persona {
         return (int) (Math.random()*100000000);
     }
 
-    private char generarLetra() {
-        return(char) (65+Math.random()*100);
+    private String generarLetra() {
+        char letra = (char) (Math.random()*(90-65)+65);
+        return String.valueOf(letra).toUpperCase();
     }
 
     protected void generaDNI(){
-        this.dni = String.valueOf(generarNumero()+generarLetra());
+        this.dni = (generarNumero() + generarLetra());
     }
 
     @Override
