@@ -1,5 +1,7 @@
 package Capitulo5.P7;
 
+import java.time.LocalDate;
+
 public class Persona {
     private final char sexoHombre = 'M';
     private String nombre = "";
@@ -24,6 +26,7 @@ public class Persona {
         this.peso = peso;
         this.altura = altura;
     }
+
 
     public final int calcularIMC(){
         double resultado;
