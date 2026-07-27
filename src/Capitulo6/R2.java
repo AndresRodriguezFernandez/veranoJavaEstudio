@@ -5,7 +5,7 @@ import java.util.Iterator;
 import java.util.Scanner;
 
 public class R2 {
-    public static ArrayList leerValores() {
+    public static ArrayList<Integer> leerValores() {
         Scanner sc = new Scanner(System.in);
         ArrayList <Integer> lista = new ArrayList<>();
         int num;
@@ -19,7 +19,7 @@ public class R2 {
         return lista;
     }
 
-    public static int suma(ArrayList lista) {
+    public static int suma(ArrayList<Integer> lista) {
         Iterator<Integer> iterador = lista.iterator();
         int suma = 0;
         while (iterador.hasNext()) {
@@ -28,26 +28,24 @@ public class R2 {
         return suma;
     }
 
-    public static double media(ArrayList lista, int suma){
+    public static double media(ArrayList<Integer> lista, int suma){
         return (double) suma / lista.size();
     }
 
-    public static void mostrarResultados(ArrayList lista, int suma, double media){
-        for (int i = 0; i < lista.size(); i++){
-            System.out.println(lista.get(i));
-        }
+    public static void mostrarResultados(ArrayList<Integer> lista, int suma, double media){
+        System.out.println("Valores introducidos: " + lista);
         System.out.println("Suma de los valores: " + suma +
                 "\nMedia de los valores: " + media);
         System.out.print("Valores más grandes que la media dentro de la lista: ");
         for (int i = 0; i < lista.size(); i++){
-            if ((int)lista.get(i) > media){
+            if (lista.get(i) > media){
                 System.out.print(lista.get(i) + ", ");
             }
         }
     }
 
     public static void main(String[] args) {
-        ArrayList lista = leerValores();
+        ArrayList<Integer> lista = leerValores();
         int suma = suma(lista);
         double media = media(lista, suma);
         mostrarResultados(lista, suma, media);
