@@ -1,16 +1,13 @@
 package Capitulo7.R5;
 
-import java.util.ArrayList;
-import java.util.Iterator;
+
 
 public class Principal {
     public static void main(String[] args) {
         Electrodomestico[] electrodomesticos = new Electrodomestico[7];
-        int precioLavadoras;
-        int precioTv;
-        int precioElectrodomesticos = 0;
-        ArrayList<Integer> tvs = new ArrayList<>();
-        ArrayList<Integer> lavadoras = new ArrayList<>();
+        double precioLavadoras = 0;
+        double precioTv = 0;
+        double precioElectrodomesticos = 0;
 
         electrodomesticos[0] = new Lavadora();
         electrodomesticos[1] = new Televisoin();
@@ -21,27 +18,22 @@ public class Principal {
         electrodomesticos[6] = new Lavadora(150, "negro", 'G', 60, 10);
 
         for (int i = 0; i < electrodomesticos.length; i++) {
-            electrodomesticos[i].precioFinal();
-            int precio = electrodomesticos[i].getPrecioBase();
-            precioElectrodomesticos += precio;
+            double precio = electrodomesticos[i].precioFinal();
+            if (electrodomesticos[i] instanceof Electrodomestico){
+                precioElectrodomesticos+=precio;
+            }
             if (electrodomesticos[i] instanceof Televisoin){
-                tvs.add(precio);
+                precioTv+=precio;
             } else if (electrodomesticos[i] instanceof Lavadora) {
-                lavadoras.add(precio);
+                precioLavadoras+=precio;
             }
         }
 
         System.out.println("-----Precios de Televisiones------");
-        Iterator<Integer> itTV = tvs.iterator();
-        while (itTV.hasNext()){
-            System.out.println(itTV.next());
-        }
+        System.out.println(precioLavadoras);
 
         System.out.println("----Precios de lavadoras-----");
-        Iterator<Integer> itLavadoras = lavadoras.iterator();
-        while (itLavadoras.hasNext()){
-            System.out.println(itLavadoras.next());
-        }
+        System.out.println(precioTv);
 
         System.out.println("-----Precio de electrodomésticos------" + "\n" + precioElectrodomesticos);
     }

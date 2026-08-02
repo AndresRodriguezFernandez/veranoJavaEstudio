@@ -13,13 +13,13 @@ public class Televisoin extends Electrodomestico{
         this.sincronizadorTDT=SINCRONIZADORTDT;
     }
 
-    public Televisoin(int precioBase, int peso) {
+    public Televisoin(double precioBase, int peso) {
         super(precioBase, peso);
         this.resolucion=RESOLUCION;
         this.sincronizadorTDT=SINCRONIZADORTDT;
     }
 
-    public Televisoin(int precioBase, String color, char consumoEnergetico, int peso, int resolucion, boolean sincronizadorTDT) {
+    public Televisoin(double precioBase, String color, char consumoEnergetico, int peso, int resolucion, boolean sincronizadorTDT) {
         super(precioBase, color, consumoEnergetico, peso);
         this.resolucion = resolucion;
         this.sincronizadorTDT = sincronizadorTDT;
@@ -33,13 +33,14 @@ public class Televisoin extends Electrodomestico{
         return sincronizadorTDT;
     }
 
-    public void precioFinal(){
+    public double precioFinal(){
+        double precio = super.precioFinal();
         if (this.resolucion > 40){
-            precioBase = precioBase + (30*precioBase/100);
+            precio = precioBase + (30*precioBase/100);
         }
         if (sincronizadorTDT){
-            precioBase+=50;
+            precio+=50;
         }
-        super.precioFinal();
+        return precio;
     }
 }

@@ -1,7 +1,7 @@
 package Capitulo7.R5;
 
 public class Electrodomestico {
-    protected int precioBase;
+    protected double precioBase;
     protected String color;
     protected char consumoEnergetico;
     protected int peso;
@@ -18,21 +18,21 @@ public class Electrodomestico {
         this.consumoEnergetico = CONSUMO;
         this.peso = PESO;
     }
-    public Electrodomestico(int precioBase, int peso){
+    public Electrodomestico(double precioBase, int peso){
         this.precioBase=precioBase;
         this.peso=peso;
         this.color=COLOR;
         this.consumoEnergetico=CONSUMO;
     }
 
-    public Electrodomestico(int precioBase, String color, char consumoEnergetico, int peso) {
+    public Electrodomestico(double precioBase, String color, char consumoEnergetico, int peso) {
         this.precioBase = precioBase;
-        this.color = color;
-        this.consumoEnergetico = consumoEnergetico;
+        comprobarColor(color);
+        comprobarConsumoEnergetico(consumoEnergetico);
         this.peso = peso;
     }
 
-    public int getPrecioBase() {
+    public double getPrecioBase() {
         return precioBase;
     }
 
@@ -48,6 +48,7 @@ public class Electrodomestico {
         return peso;
     }
 
+    /*Mi metodo
     private void comprobarConsumoEnergetico(char letra){
         char[] letrasCOnsumo = {'A', 'B', 'C', 'D','E', 'F'};
         boolean letraValida = false;
@@ -63,11 +64,21 @@ public class Electrodomestico {
         }
     }
 
+     */
+    //El metodo del libro
+    private void comprobarConsumoEnergetico(char letra){
+        if (letra >= 65 && letra <= 70){
+            this.consumoEnergetico=letra;
+        }else {
+            this.consumoEnergetico=CONSUMO;
+        }
+    }
+
     private void comprobarColor(String color){
         String[] colores = {"blanco", "negro", "rojo", "azul", "gris"};
         boolean colorValido = false;
-        for (int i = 0; i < colores.length; i++){
-            if (color == colores[i]){
+        for (int i = 0; i < colores.length && !colorValido; i++){
+            if (color.toLowerCase().equals(colores[i])){
                 colorValido=true;
             }
         }
@@ -78,6 +89,7 @@ public class Electrodomestico {
         }
     }
 
+    /*Mi metodo
     public void precioFinal(){
         if (this.consumoEnergetico == 'A') {
             this.precioBase += 100;
@@ -95,12 +107,48 @@ public class Electrodomestico {
 
         if (this.peso < 19){
             this.precioBase +=10;
-        } else if (this.peso > 20 && this.precioBase < 49) {
+        } else if (this.peso > 20 && this.peso < 49) {
             this.precioBase += 50;
-        } else if (this.precioBase > 50 && this.precioBase < 79) {
-            this.precioBase += 80;
+        } else if (this.peso > 50 && this.peso < 79) {
+            this.peso += 80;
         }else {
-            this.precioBase += 100;
+            this.peso += 100;
         }
+    }*/
+
+    //Metodo del libro
+    public double precioFinal(){
+        double plus = 0;
+        switch (consumoEnergetico){
+            case 'A':
+                plus+=100;
+                break;
+            case 'B':
+                plus+=80;
+                break;
+            case 'C':
+                plus+=60;
+                break;
+            case 'D':
+                plus+=50;
+                break;
+            case 'E':
+                plus+=30;
+                break;
+            case 'F':
+                plus+=10;
+                break;
+        }
+
+        if (this.peso < 19){
+            plus+=10;
+        } else if (this.peso > 20 && this.peso < 49) {
+            plus+=50;
+        } else if (this.peso > 50 && this.peso < 79) {
+            plus+=80;
+        }else if (this.peso > 80){
+            plus+=100;
+        }
+        return precioBase+plus;
     }
 }

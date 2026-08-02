@@ -10,12 +10,12 @@ public class Lavadora extends Electrodomestico{
         this.carga=CARGA;
     }
 
-    Lavadora(int precio, int peso){
+    Lavadora(double precio, int peso){
         super(precio, peso);
         this.carga=CARGA;
     }
 
-    public Lavadora(int precioBase, String color, char consumoEnergetico, int peso, int carga) {
+    public Lavadora(double precioBase, String color, char consumoEnergetico, int peso, int carga) {
         super(precioBase, color, consumoEnergetico, peso);
         this.carga = carga;
     }
@@ -24,10 +24,11 @@ public class Lavadora extends Electrodomestico{
         return carga;
     }
 
-    public void precioFinal(){
-        super.precioFinal();
+    public double precioFinal(){
+        double precio = super.precioFinal();
         if (getPeso() > 30){
-            precioBase += 50;
+            precio += 50;
         }
+        return precio;
     }
 }
