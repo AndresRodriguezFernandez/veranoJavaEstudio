@@ -3,15 +3,17 @@ package Capitulo7.P3;
 public class Polideportivo implements Edificio, Instalacion{
     protected double superficieEdificio;
     protected String nombre;
+    protected int tipoInstalacion;
 
-    public Polideportivo(double superficieEdificio, String nombre){
+    public Polideportivo(double superficieEdificio, String nombre, int tipoInstalacion){
         this.superficieEdificio=superficieEdificio;
         this.nombre=nombre;
+        this.tipoInstalacion=tipoInstalacion;
     }
 
     @Override
     public int getTipoDeInstalacion() {
-        return 0;
+        return this.tipoInstalacion;
     }
 
     @Override
