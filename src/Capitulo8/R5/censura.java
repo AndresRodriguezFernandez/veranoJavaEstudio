@@ -1,9 +1,6 @@
 package Capitulo8.R5;
 
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileReader;
-import java.io.FileWriter;
+import java.io.*;
 import java.util.HashMap;
 import java.util.StringTokenizer;
 
@@ -16,20 +13,29 @@ public class censura {
         try {
             FileReader fr = new FileReader(fichero);
             BufferedReader br = new BufferedReader(fr);
-            FileReader frCensura = new FileReader(fCensura);
+
+            FileReader frCensura = new FileReader(censura);
             BufferedReader brCensura = new BufferedReader(frCensura);
+
             FileWriter fw = new FileWriter(salida);
-            StringTokenizer str = new StringTokenizer(brCensura.readLine(), " ");
-            while (brCensura.readLine() != null) {
+
+
+            String s;
+            while ( (s= brCensura.readLine()) != null) {
+                StringTokenizer str = new StringTokenizer(s, " ");
                 lista.put(str.nextToken(), str.nextToken());
             }
-            while (br.readLine() != null) {
+            String l;
+            while (( l = br.readLine()) != null) {
+                StringTokenizer str = new StringTokenizer(l, " ");
                 if (lista.containsKey(str.nextToken())){
-
+                    fw.write(lista.get(str.nextToken()));
+                }else {
+                    fw.write(str.nextToken());
                 }
             }
         } catch (Exception e) {
-            e.printStackTrace();
+            System.out.println("Error " + e.getCause());
         }
 
 
