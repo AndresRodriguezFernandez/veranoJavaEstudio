@@ -19,7 +19,6 @@ public class censura {
 
             FileWriter fw = new FileWriter(salida);
 
-
             String s;
             while ( (s= brCensura.readLine()) != null) {
                 StringTokenizer str = new StringTokenizer(s, " ");
@@ -28,16 +27,20 @@ public class censura {
             String l;
             while (( l = br.readLine()) != null) {
                 StringTokenizer str = new StringTokenizer(l, " ");
-                if (lista.containsKey(str.nextToken())){
-                    fw.write(lista.get(str.nextToken()));
-                }else {
-                    fw.write(str.nextToken());
+                while (str.hasMoreTokens()) {
+                    String sig = str.nextToken();
+                    if (lista.containsKey(sig)){
+                        fw.write(lista.get(sig) + " ");
+                    }else {
+                        fw.write(sig + " ");
+                    }
                 }
             }
+            fw.close();
+            brCensura.close();
+            br.close();
         } catch (Exception e) {
-            System.out.println("Error " + e.getCause());
+            System.out.println("Error " + e.getMessage());
         }
-
-
     }
 }
