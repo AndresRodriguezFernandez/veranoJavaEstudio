@@ -15,8 +15,8 @@ public class OperadoresLogicos {
 
         //c
         boolean llueve = true;
-        boolean riesgo = false;
-        boolean mojado = llueve || riesgo;
+        boolean riego = false;
+        boolean mojado = llueve || riego;
         System.out.println(mojado);
 
     }
