@@ -12,4 +12,25 @@ public class Vehiculo {
         this.reservado = reservado;
         this.motor = motor;
     }
+
+    public boolean isReservado() {
+        return reservado;
+    }
+
+    public void setReservado(boolean reservado){
+        this.reservado=reservado;
+    }
+
+    public int getPlazas() {
+        return plazas;
+    }
+
+    @Override
+    public String toString() {
+        return "Características del vehículo:"
+                +"\nMatrícula: " + this.matricula
+                +"\nPlazas: "+ this.plazas
+                +"\nMotor: " +this.motor.getTipo()
+                +"\nPotencia: " +this.motor.getPotencia() + "CV";
+    }
 }

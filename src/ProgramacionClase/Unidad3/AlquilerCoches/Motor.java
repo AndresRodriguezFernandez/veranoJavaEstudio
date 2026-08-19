@@ -8,4 +8,12 @@ public class Motor {
         this.tipo = tipo;
         this.potencia = potencia;
     }
+
+    public String getTipo() {
+        return tipo;
+    }
+
+    public int getPotencia() {
+        return potencia;
+    }
 }
