@@ -29,7 +29,7 @@ public class Principal {
     }
 
     public static int meter_plazas(Scanner sc){
-        System.out.println("Introduzca el número de plazas que desea en su automóvil (5/7): ");
+        System.out.println("Introduzca el número de plazas del automóvil (5/7): ");
         int plazas = sc.nextInt();
         while (plazas != 5 && plazas != 7) {
             System.out.println("Introduzca un número de plazas válido (5 o 7 plazas): ");
@@ -47,7 +47,9 @@ public class Principal {
                     v =listaVehiculos[i];
                 }
             }
-            if (v.isReservado()) {
+            if (v == null) {
+                System.out.println("No hay coches disponibles con esos datos.");
+            }else if (v.isReservado()) {
                 System.out.println("Lo sentimos, no hay coches diponibles para alquilar.");
             }else {
                 System.out.println(v.toString());
@@ -56,8 +58,9 @@ public class Principal {
         } else if (opcion == 2) {
             System.out.println("----Vehículo a devoler-----");
             Vehiculo dev = null;
+            int plazasDevolver = meter_plazas(sc);
             for (int i = 0; i < listaVehiculos.length; i++) {
-                if (listaVehiculos[i].isReservado()) {
+                if (listaVehiculos[i].isReservado() && listaVehiculos[i].getPlazas() == plazasDevolver) {
                     dev =listaVehiculos[i];
                 }
             }
