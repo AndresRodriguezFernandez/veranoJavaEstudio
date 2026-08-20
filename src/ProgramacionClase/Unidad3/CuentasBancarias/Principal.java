@@ -38,7 +38,7 @@ public class Principal {
         do {
             System.out.print("Introduzca una opción: ");
             op = sc.nextInt();
-        }while (op < 6 && op > 0);
+        }while (op > 6 || op < 0);
         return op;
     }
 
@@ -75,7 +75,7 @@ public class Principal {
                 c.cambiarClave(sc);
                 break;
             case 5:
-                System.out.println("Saldo disponible: " + c.getSaldo());
+                System.out.println("Saldo disponible: " + c.getSaldo()+"€");
                 break;
             default:break;
         }
