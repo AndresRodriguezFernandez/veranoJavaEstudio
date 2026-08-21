@@ -38,7 +38,7 @@ public class Principal {
         do {
             System.out.print("Introduzca una opción: ");
             op = sc.nextInt();
-        }while (op > 6 || op < 0);
+        }while (op > 6 || op < 1);
         return op;
     }
 
@@ -47,15 +47,30 @@ public class Principal {
         do {
             System.out.println("Introduce una cantidad de dinero: ");
             cantidad = sc.nextDouble();
-        }while (cantidad < 0);
+        }while (cantidad <= 0);
         return cantidad;
     }
 
-    public static void transferir(Cuenta c1, Cuenta c2) {
-        double cantidad = validarCantidad(sc);
-        c1.reintegrar(cantidad);
-        c2.ingresar(cantidad);
-        System.out.println("Transferencia completada.");
+    public static void transferir(Cuenta CActual) {
+        Cuenta cuentaDestino = null;
+        do {
+            System.out.println("Introduce el número de cuenta al que quieras hacer la transferencia: ");
+            int numCuenta = sc.nextInt();
+            for (int i = 0; i < cuentas.length; i++) {
+                if (cuentas[i].getNumCuenta() == numCuenta) {
+                    cuentaDestino=cuentas[i];
+                }
+            }
+            if (cuentaDestino != null){
+                double cantidad = validarCantidad(sc);
+                CActual.reintegrar(cantidad);
+                cuentaDestino.ingresar(cantidad);
+                System.out.println("Transferencia completada.");
+            }else {
+                System.out.println("Error, cuenta no encontrada.");
+            }
+        }while (cuentaDestino == null);
+
     }
 
     public static void elegirOperacion(int opcion, Cuenta c) {
@@ -65,11 +80,16 @@ public class Principal {
                 c.ingresar(cantidad);
                 break;
             case 2:
-                transferir(c1, c2);
+                transferir(c);
                 break;
             case 3:
-                double cantidad2 = validarCantidad(sc);
-                c.reintegrar(cantidad2);
+                Cuenta a = identificarClave(sc);
+                if (a == c) {
+                    double cantidad2 = validarCantidad(sc);
+                    c.reintegrar(cantidad2);
+                }else {
+                    System.out.println("Error");
+                }
                 break;
             case 4:
                 c.cambiarClave(sc);
