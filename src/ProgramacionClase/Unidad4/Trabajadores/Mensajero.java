@@ -17,5 +17,6 @@ public class Mensajero extends Empleado{
     @Override
     public void verinfo() {
         super.verinfo();
+        System.out.println("Edad: " + this.edad + "\nSalario: " + getSalario());
     }
 }

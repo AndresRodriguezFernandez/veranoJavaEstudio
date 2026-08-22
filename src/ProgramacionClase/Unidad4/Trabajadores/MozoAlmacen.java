@@ -13,4 +13,11 @@ public class MozoAlmacen extends Empleado{
     public double getSalario() {
         return super.sueldoBase+(this.nTrienios*PAGO_TRIENIOS);
     }
+
+    @Override
+    public void verinfo() {
+        super.verinfo();
+        System.out.println("Salario: " + this.getSalario());
+        System.out.println("Número de trienios: " +this.nTrienios + " - Equivalente en años: " +this.nTrienios*3);
+    }
 }

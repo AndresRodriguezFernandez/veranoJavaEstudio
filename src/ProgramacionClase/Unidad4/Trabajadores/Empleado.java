@@ -13,6 +13,7 @@ public abstract class Empleado {
     public abstract double getSalario();
 
     public void verinfo(){
-        System.out.println(this.nombre + " " + this.codigoEmpleado);
+        System.out.println("Nombre: " + this.nombre
+                + "\nCódigo: " + this.codigoEmpleado);
     }
 }
