@@ -17,10 +17,12 @@ public class Serpiente extends Animal{
 
     @Override
     public String toString() {
-        return "Serpiente{" +
-                "esVenenosa=" + esVenenosa +
-                ", peso=" + peso +
-                ", tipoAnimal='" + tipoAnimal + '\'' +
-                '}';
+        String venenosa;
+        if (esVenenosa) {
+            venenosa = "Si";
+        }else {
+            venenosa = "No";
+        }
+        return super.toString() + " venenosa: " + venenosa;
     }
 }

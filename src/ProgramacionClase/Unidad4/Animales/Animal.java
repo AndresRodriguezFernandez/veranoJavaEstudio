@@ -10,14 +10,12 @@ public class Animal {
     }
 
     public void emitir_sonido() {
-        System.out.print("Sonido que emite: ");
+        System.out.print("El sonido que hace es: ");
     }
 
     @Override
     public String toString() {
-        return "Animal{" +
-                "peso=" + peso +
-                ", tipoAnimal='" + tipoAnimal + '\'' +
-                '}';
+        return "Animal: " + tipoAnimal
+                +"\nPeso: " +peso;
     }
 }
