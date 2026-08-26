@@ -24,16 +24,10 @@ public class ClaseVector {
         int[] vector2 = new int[vector1.length];
         for (int i = 0; i < vector1.length; i++){
             if (i % 2==0) {
-                for (int j = 0; j < vector2.length; j++) {
-                    if (j % 2 != 0) {
-                        vector2[j] = vector1[i]*6;
-                    }
-                }
+                vector2[i+1] = vector1[i]*6;
             }else {
-                for (int k = 0; k < vector2.length; k++) {
-                    if (k % 2 == 0){
-                        vector2[k] = vector1[i]+2;
-                    }
+                if (i % 2 != 0){
+                    vector2[i-1] = vector1[i]+2;
                 }
             }
         }
