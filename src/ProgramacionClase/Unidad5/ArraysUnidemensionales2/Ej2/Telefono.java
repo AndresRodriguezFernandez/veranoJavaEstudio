@@ -17,15 +17,18 @@ public class Telefono {
     public void visualizar() {
         if (this.llamadasRecientes != null) {
             System.out.println("------Llamadas recientes-------");
-            for (int i = 0; i < llamadasRecientes.length; i++) {
-                if (cont <= 3) {
+
+            if (cont <= 3) {
+                for (int i = 0; i < llamadasRecientes.length; i++) {
                     if (llamadasRecientes[i] != 0) {
                         System.out.println(llamadasRecientes[i]);
                     }
-                }else {
-                    System.out.println(llamadasRecientes[i%3]);
                 }
-
+            }else {
+                int inicio = cont % 3;
+                for (int k = 0; k < 3; k++) {
+                    System.out.println(llamadasRecientes[(inicio+k)%3]);
+                }
             }
         }
     }
