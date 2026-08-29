@@ -11,29 +11,28 @@ public class Principal {
             tipo = sc.nextLine();
         }while (!tipo.equalsIgnoreCase("MOVIL") && !tipo.equalsIgnoreCase("FIJO"));
 
-        int numLlamadas;
-        System.out.println("Introduce el número de llamadas recientes: ");
-        numLlamadas = sc.nextInt();
-
         Tipo tip;
         if (tipo.equalsIgnoreCase("MOVIL")) {
             tip = Tipo.MOVIL;
         }else {
             tip = Tipo.FIJO;
         }
-
-        return new Telefono(tip,numLlamadas);
+        return new Telefono(tip);
     }
     public static void gestionarLlamadas(Scanner sc, Telefono tel) {
-        for (int i = 0; i < tel.getLlamadasRecientes().length; i++){
+        int numLlamadas;
+        System.out.println("Introduce el número de llamadas: ");
+        numLlamadas = sc.nextInt();
+
+        for (int i = 0; i < numLlamadas; i++){
             System.out.println("Introduce el número: ");
-            tel.apuntarLlamada(sc.nextInt(), i);
+            tel.apuntarLlamada(sc.nextInt());
         }
     }
 
     public static void main(String[] args) {
         Telefono tel = crearObjeto(sc);
         gestionarLlamadas(sc, tel);
-        tel.visualirzar();
+        tel.visualizar();
     }
 }
