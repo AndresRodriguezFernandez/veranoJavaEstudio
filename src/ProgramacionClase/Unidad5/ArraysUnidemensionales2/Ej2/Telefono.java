@@ -19,7 +19,7 @@ public class Telefono {
             System.out.println("------Llamadas recientes-------");
 
             if (cont <= 3) {
-                for (int i = 0; i < llamadasRecientes.length; i++) {
+                for (int i = 0; i < cont; i++) {
                     if (llamadasRecientes[i] != 0) {
                         System.out.println(llamadasRecientes[i]);
                     }
