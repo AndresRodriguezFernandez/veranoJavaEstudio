@@ -11,6 +11,11 @@ public class Alumno {
         this.opcion = opcion;
     }
 
+    public Alumno(int nMatricula, String nombre) {
+        this.nMatricula = nMatricula;
+        this.nombre = nombre;
+    }
+
     public Alumno(char opcion) {
         this.opcion = opcion;
     }
@@ -37,5 +42,14 @@ public class Alumno {
 
     public void setOpcion(char opcion) {
         this.opcion = opcion;
+    }
+
+    @Override
+    public String toString() {
+        return "Alumno{" +
+                "nMatricula=" + nMatricula +
+                ", nombre='" + nombre + '\'' +
+                ", opcion=" + opcion +
+                '}';
     }
 }
