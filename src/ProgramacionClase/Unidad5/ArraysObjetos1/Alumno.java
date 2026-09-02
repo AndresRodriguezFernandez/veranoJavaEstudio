@@ -18,6 +18,12 @@ public class Alumno {
 
     public Alumno(char opcion) {
         this.opcion = opcion;
+        this.nombre = "";
+        this.nMatricula = 0;
+    }
+
+    public Alumno() {
+
     }
 
     public int getnMatricula() {
