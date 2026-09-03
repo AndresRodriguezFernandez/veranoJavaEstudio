@@ -12,11 +12,16 @@ public class Principal {
 
     public static Alumno leerDatos(Scanner sc) {
         char opcion;
+        System.out.print("Introduce una nombre: ");
+        String nombre = sc.nextLine();
+        System.out.print("Introduce un número de matrícula: ");
+        int numMatr = sc.nextInt();
         do {
             System.out.println("Introduce una opción (A/B/M): ");
             opcion = sc.next().toUpperCase().charAt(0);
         }while (opcion != 'A' && opcion != 'B' && opcion != 'M');
-        return new Alumno(opcion);
+        sc.nextLine();
+        return new Alumno(numMatr, nombre, opcion);
     }
 
     public static Alumno[] cargar() {
@@ -34,23 +39,15 @@ public class Principal {
         Alumno[] alumnos2 = new Alumno[alumnos.length];
         for (int i = 0; i < alumnos.length; i++) {
             if (alumnos[i].getOpcion() == 'A') {
-                System.out.println("Introduce el número de matricula: ");
-                int num = sc.nextInt();
-                sc.nextLine();
-                System.out.println("Introduce el nombre del alumno: ");
-                String nombre = sc.nextLine();
-                alumnos2[i] = new Alumno(num, nombre);
+                alumnos2[i] = new Alumno(alumnos[i].getnMatricula(), alumnos[i].getNombre(), alumnos[i].getOpcion());
             }
             if (alumnos[i].getOpcion() == 'B') {
-                alumnos2[i] = alumnos[i];
+                alumnos2[i] = null;
             }
             if (alumnos[i].getOpcion() == 'M') {
-                System.out.println("Introduce el nombre del alumno: ");
-                String nombre = sc.nextLine();
-                System.out.println("Introduce el número de matricula: ");
-                int num = sc.nextInt();
-                sc.nextLine();
-                alumnos2[i] = new Alumno (num, nombre);
+                System.out.print("Introduce el nuevo nombre: ");
+                String nuevoNombre = sc.nextLine();
+                alumnos2[i] = new Alumno (alumnos[i].getnMatricula(), nuevoNombre, alumnos[i].getOpcion());
             }
         }
         return alumnos2;
@@ -63,7 +60,9 @@ public class Principal {
         }
         System.out.println("---Segundo vector----");
         for (int i = 0; i < alu2.length; i++) {
-            System.out.println(alu2[i].toString());
+            if (alu2[i] != null) {
+                System.out.println(alu2[i].toString());
+            }
         }
     }
 }

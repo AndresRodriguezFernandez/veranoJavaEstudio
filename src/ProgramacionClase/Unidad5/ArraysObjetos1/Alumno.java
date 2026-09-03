@@ -1,5 +1,7 @@
 package ProgramacionClase.Unidad5.ArraysObjetos1;
 
+import java.util.Scanner;
+
 public class Alumno {
     private int nMatricula;
     private String nombre;
@@ -22,32 +24,17 @@ public class Alumno {
         this.nMatricula = 0;
     }
 
-    public Alumno() {
-
-    }
 
     public int getnMatricula() {
         return nMatricula;
-    }
-
-    public void setnMatricula(int nMatricula) {
-        this.nMatricula = nMatricula;
     }
 
     public String getNombre() {
         return nombre;
     }
 
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
-    }
-
     public char getOpcion() {
         return opcion;
-    }
-
-    public void setOpcion(char opcion) {
-        this.opcion = opcion;
     }
 
     @Override
