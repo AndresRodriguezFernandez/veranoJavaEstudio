@@ -52,6 +52,7 @@ public class Almacen {
         for (int i = 0; i < this.productosAlmacenados.length; i++) {
             if (productosAlmacenados[i].getIdentificador().equals(identif)) {
                 prod = productosAlmacenados[i];
+                break;
             }
         }
         return prod;

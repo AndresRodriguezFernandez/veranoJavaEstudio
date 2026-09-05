@@ -21,7 +21,7 @@ public class Interfaz {
         public static String decirRespuesta(Scanner sc) {
             String respuesta = null;
             do {
-                System.out.println("¿Deseas buscar otro producto? (Si/No):");
+                System.out.println("¿Deseas buscar un producto? (Si/No):");
                 respuesta = sc.nextLine().trim().toLowerCase();
             }while (!respuesta.equals("si") && !respuesta.equals("no"));
             return respuesta;
@@ -44,7 +44,6 @@ public class Interfaz {
         Scanner sc = new Scanner(System.in);
         Almacen al1 = decirCapacidad(sc);
         al1.llenarAlmacen(sc);
-        al1.visualizar(al1.buscarProducto(decirIdentificador(sc)));
         controlarFinal(sc, al1);
     }
 }

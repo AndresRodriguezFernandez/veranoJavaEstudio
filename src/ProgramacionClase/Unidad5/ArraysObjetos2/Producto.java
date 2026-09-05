@@ -58,6 +58,6 @@ public class Producto {
                 ", precio=" + precio +
                 ", descripcion='" + descripcion + '\'' +
                 ", descuento=" + descuento +
-                 ", precio final: "+(this.precio-this.descuento)+"€";
+                 ", precio final: "+(this.precio-this.descuento)+"€}";
     }
 }
