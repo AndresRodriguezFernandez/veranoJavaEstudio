@@ -33,7 +33,7 @@ public class Interfaz {
     }
 
     public static void main(String[] args) {
-        Aeropuerto aerop = new Aeropuerto();
+        Aeropuerto aerop = new Aeropuerto("A Coruña", 3);
         Scanner sc = new Scanner(System.in);
         int opcion;
         do {

@@ -5,23 +5,33 @@ import java.util.Scanner;
 public class Aeropuerto {
     private String ciudad;
     private int nVuelos;
-    private Vuelos[] vuelos = new Vuelos[nVuelos];
+    private Vuelos[] vuelos;
+    private int contadorVuelosActivos = 0;
+
+    public Aeropuerto(String ciudad, int nVuelos) {
+        this.ciudad = ciudad;
+        this.nVuelos = nVuelos;
+        this.vuelos= new Vuelos[nVuelos];
+    }
 
     public Vuelos leerDatos(Scanner sc) {
         System.out.println("---Creación de un nuevo vuelo----");
-        System.out.print("Introduzca en número de vuelo: ");
+        System.out.print("Introduzca el número de vuelo: ");
         int numVuelo = sc.nextInt();
         sc.nextLine();
         System.out.print("Introduzca el destino: ");
         String dest = sc.nextLine();
-        System.out.print("Introduzca el nombre de la comñía: ");
+        System.out.print("Introduzca el nombre de la compañía: ");
         String company = sc.nextLine();
         return new Vuelos(numVuelo, dest, company);
     }
 
     public void annadirVuelos(Scanner sc) {
-        for (int i = 0; i < vuelos.length; i++) {
-            vuelos[i] = leerDatos(sc);
+        if (contadorVuelosActivos >= nVuelos) {
+            System.out.println("Capacidad máxima de aeropuerto alacanzada.");
+        }else {
+            vuelos[contadorVuelosActivos] = leerDatos(sc);
+            contadorVuelosActivos++;
         }
     }
 
@@ -32,7 +42,7 @@ public class Aeropuerto {
 
     public Vuelos buscarVuelo(int num) {
         Vuelos vuelo = null;
-        for (int i = 0; i < vuelos.length; i++) {
+        for (int i = 0; i < contadorVuelosActivos; i++) {
             if (vuelos[i].getnVuelo() == num) {
                 vuelo = vuelos[i];
             }
@@ -56,22 +66,27 @@ public class Aeropuerto {
 
     public void borrarVuelo(Scanner sc) {
         Vuelos vuel = buscarVuelo(meterVueloEliminar(sc));
-        visualizarVuelo(vuel);
-        if (verRespuesta(sc).equals("si")) {
-            for (int i = 0; i < vuelos.length; i++) {
-                if (vuelos[i] == vuel) {
-                    vuelos[i] = vuelos[i+1];
-                    for (int j = i+1;j < vuelos.length-1; j++) {
-                        vuelos[j] = vuelos[j+1];
+        if (vuel != null) {
+            visualizarVuelo(vuel);
+            if (verRespuesta(sc).equals("si")) {
+                for (int i = 0; i < vuelos.length; i++) {
+                    if (vuelos[i] == vuel) {
+                        for (int j = i;j < contadorVuelosActivos-1; j++) {
+                            vuelos[j] = vuelos[j+1];
+                        }
                     }
                 }
+                contadorVuelosActivos--;
             }
+        }else {
+            System.out.println("No hay ningún vuelo dispobile para borrar.");
         }
+
     }
 
     public void visualizar() {
         System.out.println("---Listado de vuelos----");
-        for (int i = 0; i < vuelos.length; i++) {
+        for (int i = 0; i < contadorVuelosActivos; i++) {
             System.out.println(vuelos[i].toString());
         }
     }
