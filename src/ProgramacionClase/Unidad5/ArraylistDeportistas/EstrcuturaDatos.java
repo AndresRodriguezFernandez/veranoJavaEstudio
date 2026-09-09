@@ -6,21 +6,19 @@ import java.util.Scanner;
 public class EstrcuturaDatos {
     public ArrayList<Integer> crearSitio(ArrayList deportistas, Scanner sc) {
         ArrayList<Integer> sitio = new ArrayList<>();
-        for (int i = 0; i < deportistas.size(); i++) {
-            String num;
-            boolean seguir = true;
+        String num = "";
+        while (!(num.toLowerCase().trim().equals("no"))){
             do {
-                System.out.print("Introduce un número entre 0 y "+deportistas.size()+" :");
+                System.out.print("Introduce un número entre 0 y " + deportistas.size()+ " :");
                 num = sc.next();
+                sc.nextLine();
                 if (num.toLowerCase().trim().equals("no")) {
-                    seguir = false;
                     break;
                 }
-            }while(Integer.parseInt(num) > deportistas.size() && Integer.parseInt(num) < 0);
-            sitio.add(Integer.parseInt(num));
-            if (!seguir) {
-                break;
-            }
+                if ((Integer.parseInt(num) <= deportistas.size() && Integer.parseInt(num) >= 0)) {
+                    sitio.add(Integer.parseInt(num));
+                }
+            } while (Integer.parseInt(num) > deportistas.size() || Integer.parseInt(num) < 0);
         }
         System.out.println("Proceso terminado");
         return sitio;
@@ -35,10 +33,10 @@ public class EstrcuturaDatos {
             nombre = sc.nextLine();
             System.out.println("Introduce su deporte: ");
             deporte = sc.nextLine();
+            if ((!nombre.toLowerCase().equals("no") && !deporte.toLowerCase().equals("no"))) {
+                deportistas.add(new Deportista(nombre, deporte));
+            }
         }while (!nombre.toLowerCase().equals("no") && !deporte.toLowerCase().equals("no"));
-        if (!nombre.toLowerCase().equals("no") && !deporte.toLowerCase().equals("no")) {
-            deportistas.add(new Deportista(nombre, deporte));
-        }
         System.out.println("Proceso terminado");
         return deportistas;
     }
@@ -64,20 +62,20 @@ public class EstrcuturaDatos {
     }
 
     public void visualizar(ArrayList<Deportista> deportistas, ArrayList<Integer> sitio, Deportista[] deportistasVec) {
-        System.out.println("---Visualizando vector de deportistas final-----");
+        System.out.println("---Visualizando ArrayList de deportistas final-----");
         for (int i = 0; i < deportistas.size(); i++) {
             System.out.println(deportistas.get(i).toString());
         }
 
         System.out.println("--Visualizando vector sitio----");
         for (int j = 0; j < sitio.size(); j++) {
-            System.out.println(sitio.get(j)+" ");
+            System.out.print (sitio.get(j)+" ");
         }
+        System.out.println();
 
         System.out.println("---Visualizando vector normal de deportistas---");
         for (int k = 0; k < deportistasVec.length; k++) {
             System.out.println(deportistasVec[k].toString());
         }
     }
-
 }
