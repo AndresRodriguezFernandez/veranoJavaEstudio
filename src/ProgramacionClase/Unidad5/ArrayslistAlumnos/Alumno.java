@@ -3,19 +3,19 @@ package ProgramacionClase.Unidad5.ArrayslistAlumnos;
 import java.time.LocalDate;
 
 public class Alumno {
-    private int edad;
+    private String dni;
     private String nombre;
     private LocalDate fechaNacimiento;
 
     public Alumno() {
     }
 
-    public int getEdad() {
-        return edad;
+    public String getDni() {
+        return dni;
     }
 
-    public void setEdad(int edad) {
-        this.edad = edad;
+    public void setDni(String dni) {
+        this.dni = dni;
     }
 
     public String getNombre() {
@@ -32,5 +32,14 @@ public class Alumno {
 
     public void setFechaNacimiento(LocalDate fechaNacimiento) {
         this.fechaNacimiento = fechaNacimiento;
+    }
+
+    @Override
+    public String toString() {
+        return "Alumno{" +
+                "dni='" + dni + '\'' +
+                ", nombre='" + nombre + '\'' +
+                ", fechaNacimiento=" + fechaNacimiento +
+                '}';
     }
 }
