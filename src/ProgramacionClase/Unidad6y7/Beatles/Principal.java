@@ -48,13 +48,12 @@ public class Principal {
             FileReader fr = new FileReader(fichero);
             BufferedReader br = new BufferedReader(fr);
             String linea = "";
-            int i = 0;
             while ((linea = br.readLine()) != null) {
                 nombresApellidosLista.add(linea);
             }
 
-            for (int j = 0; j < nombreApellido.length;j++) {
-                nombreApellido[i] = nombresApellidosLista.get(i) + " " + nombresApellidosLista.get(i+4);
+            for (int j = 0; j < nombreApellido.length; j++) {
+                nombreApellido[j] = nombresApellidosLista.get(j) + " " + nombresApellidosLista.get(j+4);
             }
 
             br.close();
